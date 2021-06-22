@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 1111, y: 271}
   m_MaxSize: {x: 26006, y: 10021}
   vertical: 0
-  controlID: 11846
+  controlID: 309
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -551,9 +551,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 283d0000
-      m_LastClickedID: 15656
-      m_ExpandedIDs: 9ac2ffff98c4ffffe8faffff623900008c390000a4390000ec3a0000a43b0000543c0000b63c0000c83c0000283d0000463d0000
+      m_SelectedIDs: 9a390000
+      m_LastClickedID: 14746
+      m_ExpandedIDs: 62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -616,20 +616,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/SOUND
+    - Assets/Sc
   m_ViewMode: 1
   m_StartGridSize: 67
   m_LastFolders:
-  - Assets/SOUND
+  - Assets/Sc
   m_LastFoldersGridSize: 67
-  m_LastProjectPath: "C:\\Users\\\uAC15\uD0DC\uC131\\Desktop\\TeamProject"
+  m_LastProjectPath: C:\dddd\TeamProject1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 74580000
-    m_LastClickedID: 22644
-    m_ExpandedIDs: 00000000023e0000043e0000063e0000083e00000a3e00000c3e00000e3e0000103e0000123e000000ca9a3b
+    m_SelectedIDs: 1c3e0000
+    m_LastClickedID: 15900
+    m_ExpandedIDs: 00000000183e00001a3e00001c3e00001e3e0000203e0000223e0000243e0000263e0000283e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -657,7 +657,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000023e0000043e0000063e0000083e00000a3e00000c3e00000e3e0000103e0000123e000000ca9a3b
+    m_ExpandedIDs: 00000000183e00001a3e00001c3e00001e3e0000203e0000223e0000243e0000263e0000283e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -750,7 +750,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 100
+  m_LastVerticalScrollValue: 0
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
