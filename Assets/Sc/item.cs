@@ -9,6 +9,7 @@ public class item : MonoBehaviour
     public GameObject shopWindow;
     public GameObject workWindow;
     public GameObject dungeonWindow;
+    [SerializeField] AudioSource aa;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,21 +31,22 @@ public class item : MonoBehaviour
     public void shopOn()
     {
         allfalse();
+        aa.Play();
         shopWindow.SetActive(true);
     }
     public void workOn()
     {
-        allfalse();
+        allfalse(); aa.Play();
         workWindow.SetActive(true);
     }
     public void HomeOn()
     {
-        allfalse();
+        allfalse(); aa.Play();
         HomeWindow.SetActive(true);
     }
     public void dungeonOn()
     {
-        allfalse();
+        allfalse(); aa.Play();
         dungeonWindow.SetActive(true);
     }
 

@@ -10,19 +10,29 @@ public class dungeon : MonoBehaviour
     [SerializeField] stat stat;
     [SerializeField] misson misson;
     Monster info;
-    [SerializeField] Text diate;
-
-    float num;
+    [SerializeField] Text[] diate;
+    [SerializeField] click click1;
+    [SerializeField] GameObject click2;
+    [SerializeField] Text TimeText;
+    float[] nums;
+    float[] diaNums;
+    int n;
     bool boss;
     public int dia;
-
+    float time;
     // Start is called before the first frame update
     void Start()
     {
         boss = false;
         info = this.gameObject.GetComponent<Monster>();
-        num = 1;
-        diate.text = "100000";
+        nums = new float[4];
+        diaNums = new float[4];
+        for (int i = 0;i<4;i++)
+        {
+    
+            nums[i] = 1;
+        }
+        time = 0;
     }
 
     // Update is called once per frame
@@ -31,26 +41,42 @@ public class dungeon : MonoBehaviour
 
         if (boss)
         {
+            time -= Time.deltaTime;
+            TimeText.text = "제한시간 : " + (int)time + " / 60";
             if (info.HPzero())
             {
-                diate.text = "" + info.diaText();
                 misson.numPlus(0);
-                num++;
+                nums[n]++;
+                float dias = nums[n] * 100 * diaNums[n];
+                diate[n].text = "" + info.diaText();
+              
                 MONSETR.SetActive(true);
                 BossMONSETR.SetActive(false);
                 boss = false;
+                TimeText.text = "";
+                return;
             }
+            if (time <=0)
+            {
+                MONSETR.SetActive(true);
+                BossMONSETR.SetActive(false);
+                click1.failTure();
+                StartCoroutine(click2.GetComponent<effect>().CoFade(1.0f, 1.0f, 1.0f));
+                boss = false;
+            }
+            return;
         }
+        TimeText.text = "";
+    }
 
-}
-
-    public void SetMonsetr()
+    public void SetMonsetr(int num)
     {
+        n = num;
         MONSETR.SetActive(false);
         BossMONSETR.SetActive(true);
-        info.SetProfile2(0, num);
-        diate.text = "" + info.diaText();
+        info.SetProfile2(num, nums[num]);
         boss = true;
+        time = 60.0f;
     }
 
 }

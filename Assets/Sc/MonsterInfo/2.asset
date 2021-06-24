@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   HP: 500
-  DiaDrop: 5000
-  monsterImage: {fileID: 21300000, guid: a6213589fa1c6d249a3b2e31d0ebdc15, type: 3}
+  DiaDrop: 60
+  monsterImage: {fileID: 21300000, guid: 6365c16d473d5db45b74fefd6e9982d2, type: 3}

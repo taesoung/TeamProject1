@@ -13,9 +13,10 @@ public class Monster : MonoBehaviour
 
     [SerializeField] int DiaDrop;
     [SerializeField] int bossDiaDrop;
-
+    [SerializeField] int bossDiaDropEx;
 
     [SerializeField] SpriteRenderer monsterImage;
+    [SerializeField] SpriteRenderer bossMonsterImage;
 
     [SerializeField] MonsterInfo[] MInfo;
 
@@ -23,6 +24,10 @@ public class Monster : MonoBehaviour
 
     public GameObject hpSlider;
     public GameObject bosshpSlider;
+    [SerializeField] GameObject BOSSTextObject;
+    [SerializeField] Text BOSSText;
+    misson Misoon;
+
 
     public bool boss;
 
@@ -39,8 +44,8 @@ public class Monster : MonoBehaviour
     }
     void Start()
     {
-        
-        SetProfile(Random.Range(0, 3));
+        Misoon = this.gameObject.GetComponent<misson>();
+        SetProfile(0);
     }
 
     // Update is called once per frame
@@ -72,8 +77,10 @@ public class Monster : MonoBehaviour
             if (_monsters.Key == _monsterId)
             {
                 ID = _monsters.Value.MyID;
-                bossDiaDrop = _monsters.Value.MyDiaDrop* 100 * (int)n;
-                monsterImage.sprite = _monsters.Value.MymonsterImage;
+
+                bossDiaDrop = _monsters.Value.MyDiaDrop* 10 * (int)n;
+                bossDiaDropEx = _monsters.Value.MyDiaDrop * 10 * ((int)n+1);
+                bossMonsterImage.sprite = _monsters.Value.MymonsterImage;
                 bosshpSlider.SetActive(true);
                 hpSlider.SetActive(false);
                 bosshpSlider.GetComponent<Slider>().maxValue = _monsters.Value.MyHP *n*10.0f;
@@ -83,7 +90,7 @@ public class Monster : MonoBehaviour
 
 
                 st.bossmonsterSet(this.gameObject);
-
+                boss = true;
             }
         }
     }
@@ -96,6 +103,9 @@ public class Monster : MonoBehaviour
             bosshpSlider.GetComponent<Slider>().value -= num;
             if (bosshpSlider.GetComponent<Slider>().value <= 0)
             {
+                boss = false;
+                StartCoroutine(BOSSTextObject.GetComponent<effect>().CoFade(1.0f, 1.0f, 1.0f));
+                BOSSText.text = "" + bossDiaDrop + "다이아 휙득";
 
                 return bossDiaDrop;
             }
@@ -106,9 +116,17 @@ public class Monster : MonoBehaviour
         hpSlider.GetComponent<Slider>().value -= num;
         if (hpSlider.GetComponent<Slider>().value <= 0)
         {
-          
-            SetProfile(Random.Range(0, 3));
 
+
+            if (st.getAtteackPower() > 30.0f)
+                SetProfile(Random.Range(0, 4));
+            else if (st.getAtteackPower() > 10.0f)
+                SetProfile(Random.Range(0, 3));
+            else if (st.getAtteackPower()>5.0f)
+            SetProfile(Random.Range(0,2));
+            else
+                SetProfile(0);
+            Misoon.numPlus(2);
             return DiaDrop;
         }
 
@@ -128,7 +146,7 @@ public class Monster : MonoBehaviour
     }
     public int diaText()
     {
-        return bossDiaDrop;
+        return bossDiaDropEx;
     }
 
 }

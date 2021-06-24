@@ -27,49 +27,49 @@ public class misson : MonoBehaviour
     void Update()
     {
 
-        if (num[0] < 4)
+        if (num[0] < 2)
         {
             missonS[0].isOn = false;
-            textS[0].text = "던전 클리어(" + num[0] + "/5)";
+            textS[0].text = "던전 클리어(" + num[0] + "/2)";
         }
         else
         {
             missonS[0].isOn = true;
             if (gold[0] == false)
             {
-                textS[0].text = "던전 클리어(5/5)";
+                textS[0].text = "던전 클리어(2/2)";
                 gold[0] = true;
                 stat.getDiamond(1000);
             }
         }
-        if (num[1] < 20)
+        if (num[1] < 5)
         {
             missonS[1].isOn = false;
-            textS[1].text = "무기 업그레이드(" + num[1] + "/20)";
+            textS[1].text = "무기 업그레이드(" + num[1] + "/5)";
         }
         else
         {
             missonS[1].isOn = true;
             if (gold[1] == false)
             {
-                textS[1].text = "무기 업그레이드(20/20)";
+                textS[1].text = "무기 업그레이드(5/5)";
                 gold[1] = true;
-                stat.getDiamond(1000);
+                stat.getDiamond(300);
             }
         }
         if (num[2] < 5)
         {
             missonS[2].isOn = false;
-            textS[2].text = "던전 클리어(" + num[2] + "/5)";
+            textS[2].text = "몬스터 처치(" + num[2] + "/5)";
         }
         else
         {
             missonS[2].isOn = true;
             if (gold[2] == false)
             {
-                textS[2].text = "던전 클리어(5/5)";
+                textS[2].text = "몬스터 처치(5/5)";
                 gold[2] = true;
-                stat.getDiamond(1000);
+                stat.getDiamond(100);
             }
         }
 
